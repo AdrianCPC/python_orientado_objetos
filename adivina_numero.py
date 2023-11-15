@@ -6,14 +6,20 @@ print("************************************")
 numero_secreto = 55
 #Mientras se cumpla condicion , continue ejecutando
 total_intentos = 3
-intento = 1 
+#intento = 1 
 
-# Introducir un numero
-while (total_intentos >= intento):
+
+#while (total_intentos >= intento):
+for intento in range(1,4):
     #print("Intento {} de {}".format(intento, total_intentos))
     print(f"Intento {intento} de {total_intentos}")
+    
+    # Introducir un numero
     entrada_str = input("Digita un numero: ")
     entrada = int(entrada_str)
+    if (entrada < 1 or entrada > 100):
+        print("Digita un numero mayor que 0 y menor o igual a 100")
+        continue
     print("El numero que digitaste: ",entrada)
 
     acierto = entrada == numero_secreto
@@ -23,6 +29,7 @@ while (total_intentos >= intento):
     #Si numero entrada es igual a numero secreto: acierto
     if (acierto):
         print("Has acertado")
+        break
     #Si no se cumple, sera: Error
     else:
     #Si el usuario digito un numero mayor entonces especificar
@@ -30,7 +37,7 @@ while (total_intentos >= intento):
             print("El numero no corresponde! El numero que ingresaste es mayor.")
         elif (menor):
             print("El numero no corresponde! El numero que ingresaste es menor.")
-    intento += 1
+    #intento += 1
 
 print("El juego ha concluido")
 
