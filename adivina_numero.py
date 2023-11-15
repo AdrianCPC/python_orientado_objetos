@@ -27,15 +27,15 @@ for intento in range(1,4):
     menor = entrada < numero_secreto
 
     #Si numero entrada es igual a numero secreto: acierto
-    if (acierto):
+    if acierto:
         print("Has acertado")
         break
     #Si no se cumple, sera: Error
     else:
     #Si el usuario digito un numero mayor entonces especificar
-        if (mayor):
+        if mayor:
             print("El numero no corresponde! El numero que ingresaste es mayor.")
-        elif (menor):
+        elif menor:
             print("El numero no corresponde! El numero que ingresaste es menor.")
     #intento += 1
 
