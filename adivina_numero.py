@@ -10,7 +10,8 @@ intento = 1
 
 # Introducir un numero
 while (total_intentos >= intento):
-    print("Intento", intento, "de", total_intentos)
+    #print("Intento {} de {}".format(intento, total_intentos))
+    print(f"Intento {intento} de {total_intentos}")
     entrada_str = input("Digita un numero: ")
     entrada = int(entrada_str)
     print("El numero que digitaste: ",entrada)
