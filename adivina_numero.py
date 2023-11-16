@@ -1,16 +1,35 @@
+"""import random"""
+import random
 print("************************************")
-print("           Adivina el numero    ")
+print("    Adivina el numero    ")
 print("************************************")
 
+print("Elige el nivel de dificultad")
+print("(1) Novato (2) Intermedio (3) Avanzado")
 
-numero_secreto = 55
+
+nivel = int(input("Nivel: "))
+
+if nivel == 1:
+    total_intentos = 20
+elif nivel == 2:
+    total_intentos = 10
+else:
+    total_intentos = 5
+
+
+
+#numero_secreto = round(random.random()*100)
+numero_secreto = random.randint(1,100)
+puntos = 1000
+#print("El numero secreto es: ", numero_secreto)
 #Mientras se cumpla condicion , continue ejecutando
-total_intentos = 3
+#total_intentos = 3
 #intento = 1 
 
 
 #while (total_intentos >= intento):
-for intento in range(1,4):
+for intento in range(1,total_intentos+1):
     #print("Intento {} de {}".format(intento, total_intentos))
     print(f"Intento {intento} de {total_intentos}")
     
@@ -28,7 +47,7 @@ for intento in range(1,4):
 
     #Si numero entrada es igual a numero secreto: acierto
     if acierto:
-        print("Has acertado")
+        print(f"Has acertado! tu puntaje es {puntos}")
         break
     #Si no se cumple, sera: Error
     else:
@@ -38,6 +57,8 @@ for intento in range(1,4):
         elif menor:
             print("El numero no corresponde! El numero que ingresaste es menor.")
     #intento += 1
+        puntos_perdidos =abs(numero_secreto - entrada)
+        puntos = puntos - puntos_perdidos
 
 print("El juego ha concluido")
 
