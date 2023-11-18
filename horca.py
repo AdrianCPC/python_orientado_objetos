@@ -1,5 +1,7 @@
-def jugar():
+"""Init game horca"""
 
+def jugar():
+    """titles for game"""
     print("************************************")
     print("    Juego de la Horca - Bienvenido   ")
     print("************************************")
