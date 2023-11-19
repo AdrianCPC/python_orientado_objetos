@@ -10,20 +10,23 @@ def jugar():
 
 palabra_secreta = "banana"
 palabra_secreta = palabra_secreta.strip()
+letras_acertadas = ['_','_','_','_','_','_']
+print(letras_acertadas)
 
 # Mientras la persona no se ahorque ni acierte la palabra el juego continua
 ahorco = False
 acerto = False
 
 while (not ahorco and not acerto):
-    intento = input("Digita una letra")
+    intento = input("\nDigita una letra: ")
     intento = intento.strip()
     indice = 0
     for letra in palabra_secreta:
         if intento.upper() == letra.upper():
-            print("Encontre la letra '{letra}' en la posicion {indice}")
+            letras_acertadas[indice] = letra.upper()
+            #print("Encontre la letra '{letra}' en la posicion {indice}")
         indice = indice + 1
-    print("Jugando")
+    print(letras_acertadas)
 
 
 
