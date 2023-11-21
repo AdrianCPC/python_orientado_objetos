@@ -1,5 +1,5 @@
 """Init game horca"""
-
+import random
 def jugar():
     """titles for game"""
     print("************************************")
@@ -8,7 +8,12 @@ def jugar():
     print("Elige el nivel de dificultad")
     print("(1) Novato (2) Intermedio (3) Avanzado")
 
-palabra_secreta = "fresa".upper()
+archivo = open('palabras.txt', 'r')
+palabras = [linea.strip() for linea in archivo]
+archivo.close()
+i = random.randrange(0,len(palabras))
+
+palabra_secreta = palabras[i].upper()
 palabra_secreta = palabra_secreta.strip()
 letras_acertadas = ['_' for letra in palabra_secreta]
 print(letras_acertadas)
