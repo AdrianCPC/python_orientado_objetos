@@ -1,5 +1,7 @@
 """Init game horca"""
 import random
+#def imprime_presentacion():
+#    imprime_presentacion()
 def jugar():
     """titles for game"""
     print("************************************")
@@ -8,14 +10,25 @@ def jugar():
     print("Elige el nivel de dificultad")
     print("(1) Novato (2) Intermedio (3) Avanzado")
 
-archivo = open('palabras.txt', 'r')
-palabras = [linea.strip() for linea in archivo]
-archivo.close()
-i = random.randrange(0,len(palabras))
+def cargar_palabra():
 
-palabra_secreta = palabras[i].upper()
-palabra_secreta = palabra_secreta.strip()
-letras_acertadas = ['_' for letra in palabra_secreta]
+    archivo = open('palabras.txt', 'r')
+    palabras = [linea.strip() for linea in archivo]
+    archivo.close()
+    i = random.randrange(0,len(palabras))
+
+    palabra_secreta = palabras[i].strip().upper()
+    return palabra_secreta
+
+
+
+def inicializa_lista(palabra):
+    return ['_' for letra in palabra_secreta]
+
+
+palabra_secreta = cargar_palabra()
+
+letras_acertadas = inicializa_lista(palabra_secreta)
 print(letras_acertadas)
 
 # Mientras la persona no se ahorque ni acierte la palabra el juego continua
