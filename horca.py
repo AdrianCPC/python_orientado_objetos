@@ -23,7 +23,7 @@ def cargar_palabra():
 
 
 def inicializa_lista(palabra):
-    return ['_' for letra in palabra_secreta]
+    return ['_' for letra in palabra]
 
 
 def pide_intento():
