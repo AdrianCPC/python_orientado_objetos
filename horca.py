@@ -26,6 +26,20 @@ def inicializa_lista(palabra):
     return ['_' for letra in palabra_secreta]
 
 
+def pide_intento():
+    intento = input("\nDigita una letra: ")
+    intento = intento.strip().upper()
+    return intento
+
+def marca_intento_correcto(intento, letras_acertadas, palabra_secreta):
+    indice = 0
+    for letra in palabra_secreta:
+      if intento == letra:
+        letras_acertadas[indice] = letra
+        #print("Encontre la letra '{letra}' en la posicion {indice}")
+      indice = indice + 1
+
+
 palabra_secreta = cargar_palabra()
 
 letras_acertadas = inicializa_lista(palabra_secreta)
@@ -37,16 +51,9 @@ acerto = False
 errores = 0
 
 while (not ahorco and not acerto):
-    intento = input("\nDigita una letra: ")
-    intento = intento.strip().upper()
+    intento = pide_intento()
     if intento in palabra_secreta:
-        indice = 0
-
-        for letra in palabra_secreta:
-            if intento == letra:
-                letras_acertadas[indice] = letra
-                #print("Encontre la letra '{letra}' en la posicion {indice}")
-            indice = indice + 1
+        marca_intento_correcto(intento, letras_acertadas, palabra_secreta)
     else:
         errores += 1
         #print("¡Ups, has fallado! Quedan {} intentos.".format(6-errores))
