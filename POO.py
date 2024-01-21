@@ -40,19 +40,23 @@ extracto(cuenta_1)
 class Cuenta:
     def __init__(self, numero, titular, saldo, agencia, limite):
         print('Creando cuenta bancaria...')
-        self.numero = numero
-        self.titular = titular
-        self.saldo = saldo
-        self.agencia = agencia
-        self.limite = limite
+        self.__numero = numero #atributo privado con __
+        self.__titular = titular
+        self.__saldo = saldo
+        self.__agencia = agencia
+        self.__limite = limite
 #definiendo metodos
     def retira(self, valor):
-        self.saldo -= valor
+        self.__saldo -= valor
     def deposita(self, valor):
-        self.saldo += valor
+        self.__saldo += valor
 
     def extracto(self):
-        print(f'El saldo de la cuenta de {self.titular} es: {self.saldo}')
+        print(f'El saldo de la cuenta de {self.__titular} es: {self.__saldo}')
+
+    def transfiere(self, valor,destino):
+        self.retira(valor) #encapsulando
+        destino.deposita(valor)
 
 cuenta1 = Cuenta(123,'Alvaro', 55.0, '001', 1000.0)
 cuenta2 = Cuenta(321,'Jose', 100.0, '001', 1000.0)
