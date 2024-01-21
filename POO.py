@@ -45,5 +45,14 @@ class Cuenta:
         self.saldo = saldo
         self.agencia = agencia
         self.limite = limite
+#definiendo metodos
+    def retira(self, valor):
+        self.saldo -= valor
+    def deposita(self, valor):
+        self.saldo += valor
+
+    def extracto(self):
+        print(f'El saldo de la cuenta de {self.titular} es: {self.saldo}')
 
 cuenta1 = Cuenta(123,'Alvaro', 55.0, '001', 1000.0)
+cuenta2 = Cuenta(321,'Jose', 100.0, '001', 1000.0)
