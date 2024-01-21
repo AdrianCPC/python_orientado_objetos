@@ -35,3 +35,15 @@ extracto(cuenta_1)
 deposita(cuenta_1, 100)
 extracto(cuenta_1)
 
+
+#creando clases para generar objetos
+class Cuenta:
+    def __init__(self, numero, titular, saldo, agencia, limite):
+        print('Creando cuenta bancaria...')
+        self.numero = numero
+        self.titular = titular
+        self.saldo = saldo
+        self.agencia = agencia
+        self.limite = limite
+
+cuenta1 = Cuenta(123,'Alvaro', 55.0, '001', 1000.0)
