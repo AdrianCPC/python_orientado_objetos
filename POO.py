@@ -45,9 +45,17 @@ class Cuenta:
         self.__saldo = saldo
         self.__agencia = agencia
         self.__limite = limite
+
 #definiendo metodos
+    def __puede_retirar(self, valor_a_retirar):
+        valor_disponible = self.__saldo + self.__limite
+        return valor_a_retirar <= valor_disponible
     def retira(self, valor):
-        self.__saldo -= valor
+        if (self.__puede_retirar(valor)):
+          self.__saldo -= valor
+        else:
+          print(f'El valor {valor} excedio el limite permitido')
+    
     def deposita(self, valor):
         self.__saldo += valor
 
@@ -58,16 +66,21 @@ class Cuenta:
         self.retira(valor) #encapsulando
         destino.deposita(valor)
     #Getters
-    def get_saldo(self):
+    @property
+    def saldo(self):
         return self.__saldo
-    def get_titular(self):
+    
+    @property
+    def titular(self):
         return self.__titular
     
+    @staticmethod
+    def codigo_banco():
+        return '1001'
     #Setter
     def set_limite(self, limite):
         self.__limite = limite
         return self.__limite
-
     
 
 cuenta1 = Cuenta(123,'Alvaro', 55.0, '001', 1000.0)
@@ -96,8 +109,5 @@ class Cliente:
     @limite.setter
     def limite(self, limite):
         self.__limite = limite
-    
 
 
-
-cliente = Cliente('pedro', 10000)
