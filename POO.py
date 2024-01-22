@@ -57,6 +57,47 @@ class Cuenta:
     def transfiere(self, valor,destino):
         self.retira(valor) #encapsulando
         destino.deposita(valor)
+    #Getters
+    def get_saldo(self):
+        return self.__saldo
+    def get_titular(self):
+        return self.__titular
+    
+    #Setter
+    def set_limite(self, limite):
+        self.__limite = limite
+        return self.__limite
+
+    
 
 cuenta1 = Cuenta(123,'Alvaro', 55.0, '001', 1000.0)
 cuenta2 = Cuenta(321,'Jose', 100.0, '001', 1000.0)
+
+
+#Creando una nueva clase Cliente
+
+class Cliente:
+    def __init__(self, nombre, limite):
+        print("Creando nuevo cliente...")
+        self.__nombre = nombre
+        self.__limite = limite
+    @property
+    def nombre(self):
+       return self.__nombre.title()
+    
+    @nombre.setter
+    def nombre(self,nombre):
+        self.__nombre= nombre
+    
+    @property
+    def limite(self):
+        return self.__limite
+    
+    @limite.setter
+    def limite(self, limite):
+        self.__limite = limite
+    
+
+
+
+cliente = Cliente('pedro', 10000)
